@@ -23,14 +23,12 @@ export default function Cards() {
     margin-top: 50%;
     gap: 2rem;
   `;
-  const Label = styled.label`
-    position: absolute;
-    margin-top: 10%;
-    margin-left: -13%;
-    z-index: 2;
-    color:white;
-    Font-size: 28px
+  const LabelNumber = styled.label`
 
+
+
+  `;
+  const LabelName = styled(LabelNumber)`
   `;
   const cardDataNumber = `0000 0000 0000`;
   const cardDataName = `Ariane Crestani`
@@ -39,11 +37,9 @@ export default function Cards() {
   return (
     <CardDiv>
       <div>
-        <Label> {cardDataNumber}</Label>
-        <br />
-        <br />
-        <Label> {cardDataName}</Label>
         <CardFront alt="cardFront" src={BgCardFront} />
+        <LabelNumber> {cardDataNumber}</LabelNumber>
+        <LabelName> {cardDataName}</LabelName>
       </div>
       <CardBack alt="cardBack" src={BgCardBack} />
     </CardDiv>

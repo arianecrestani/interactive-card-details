@@ -1,37 +1,34 @@
 import styled from "styled-components";
+import InputField from "../Components/InputField";
 
 export default function Inputs() {
-  const Div = styled.div`
+  const FirstSection = styled.div`
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    margin-top: 50%;
-    
+    margin-top: 60%;
+    font-family: "Space Grotesk";
   `;
-  const InputName = styled.input`
-    width: 380px;
-    height: 45px;
-    top: 24px;
-    background: #dfdee0;
-    border-radius: 8px;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-  `;
-  const InputNumber = styled(InputName)``;
 
-  const InputDate = styled.input`
-    width: 80px;
-    height: 45px;
-    border-radius: 8px;
-    
+  const SecondSection = styled.div`
+    gap: 6px;
+    display: flex;
+    margin-top: 4px;
   `;
-  const InputCvc = styled.input`
-    width: 191px;
-    height: 45px;
-    border-radius: 8px;
-  `;
+  // const InputDate = styled.input`
+  //   width: 80px;
+  //   height: 45px;
+  //   border-radius: 8px;
+  //   border-color: #dfdee0;
+  // `;
+  // const InputCvc = styled.input`
+  //   width: 191px;
+  //   height: 45px;
+  //   border-radius: 8px;
+  //   border-color: #dfdee0;
+  // `;
   const Button = styled.button`
+    margin-top: 2rem;
     width: 381px;
     height: 53px;
     border-radius: 8px;
@@ -39,17 +36,22 @@ export default function Inputs() {
     color: #ffffff;
   `;
 
+
   return (
     <div>
-      <Div>
-        <InputName placeholder="e.g. Ariane Crestani" />
-        <InputNumber placeholder="e.g. 1234 5678 9123 0000" />
-      </Div>
-      <div>
-        <InputDate placeholder="MM" />
-        <InputDate placeholder="YY" />
-        <InputCvc placeholder="e.g. 123" />
-      </div>
+      <FirstSection>
+        <InputField label="Cardholder Name" inputName="e.g. Jane Appleseed" />
+        <InputField label="Card Number" inputName="e.g. 1234 5678 9123 0000" />
+      </FirstSection>
+      <SecondSection>
+        <div>
+          <InputField inputwidth='80px' label="Exp. Date (MM/YY)" inputName="MM" />
+          <InputField inputName="YY" />
+        </div>
+        <div>
+          <InputField label="cvc" inputName="e.g. 123" />
+        </div>
+      </SecondSection>
       <Button>Confirm</Button>
     </div>
   );

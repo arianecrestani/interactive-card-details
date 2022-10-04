@@ -24,9 +24,6 @@ export default function Cards() {
     gap: 2rem;
   `;
   const LabelNumber = styled.label`
-
-
-
   `;
   const LabelName = styled(LabelNumber)`
   `;
@@ -38,8 +35,8 @@ export default function Cards() {
     <CardDiv>
       <div>
         <CardFront alt="cardFront" src={BgCardFront} />
-        <LabelNumber> {cardDataNumber}</LabelNumber>
-        <LabelName> {cardDataName}</LabelName>
+        <LabelNumber>{cardDataNumber}</LabelNumber>
+        <LabelName>{cardDataName}</LabelName>
       </div>
       <CardBack alt="cardBack" src={BgCardBack} />
     </CardDiv>

@@ -53,10 +53,21 @@ export default function Cards() {
     letter-spacing: 2px;
     font-size: 14px;
     line-height: 18px;
+    justify-content: space-around;
   `;
+  const LabelDate = styled(LabelName)`
+    margin-left: 140px;
+  `;
+  const LabelCvc = styled.label`
+    margin-bottom: -100px;
+    z-index: auto;
+  `;
+
 
   const cardDataNumber = `0000 0000 0000 0000`;
   const cardDataName = `Ariane Crestani`
+  const cardDate = `00/00`
+  const cardCvc = `000`
   
 
   return (
@@ -65,11 +76,14 @@ export default function Cards() {
         <CardFront alt="cardFront" src={BgCardFront} />
         <Labels>
           <LabelNumber>{cardDataNumber}</LabelNumber>
-          <LabelName>{cardDataName}</LabelName>
+          <div>
+            <LabelName>{cardDataName}</LabelName>
+            <LabelDate>{cardDate}</LabelDate>
+          </div>
         </Labels>
       </CardDiv1>
-
       <CardDiv2>
+        <LabelCvc>{cardCvc}</LabelCvc>
         <CardBack alt="cardBack" src={BgCardBack} />
       </CardDiv2>
     </div>

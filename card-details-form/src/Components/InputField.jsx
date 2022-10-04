@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export default function InputField({label, inputName}) {
+export default function InputField({ label, inputName, inputwidth }) {
   const InputName = styled.input`
     width: ${(props) => props.inputwidth || "380px"};
     height: 45px;
@@ -12,12 +12,14 @@ export default function InputField({label, inputName}) {
     border-color: #dfdee0;
   `;
 
-  const Label = styled.label``;
+  const Label = styled.label`
+    display:flex;
+  `;
 
   return (
     <div>
       <Label>{label}</Label>
-      <InputName placeholder={inputName} />
+      <InputName placeholder={inputName} inputwidth={inputwidth} />
     </div>
   );
 }

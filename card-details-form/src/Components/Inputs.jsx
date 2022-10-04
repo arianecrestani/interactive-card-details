@@ -11,9 +11,10 @@ export default function Inputs() {
   `;
 
   const SecondSection = styled.div`
-    gap: 6px;
+    gap: 5px;
     display: flex;
-    margin-top: 4px;
+    margin-top: 15px;
+    flex-direction:row;
   `;
   // const InputDate = styled.input`
   //   width: 80px;
@@ -40,17 +41,13 @@ export default function Inputs() {
   return (
     <div>
       <FirstSection>
-        <InputField label="Cardholder Name" inputName="e.g. Jane Appleseed" />
-        <InputField label="Card Number" inputName="e.g. 1234 5678 9123 0000" />
+        <InputField label="CARDHOLDER NAME" inputName="e.g. Jane Appleseed" />
+        <InputField label="CARD NUMBER" inputName="e.g. 1234 5678 9123 0000" />
       </FirstSection>
       <SecondSection>
-        <div>
-          <InputField inputwidth='80px' label="Exp. Date (MM/YY)" inputName="MM" />
-          <InputField inputName="YY" />
-        </div>
-        <div>
-          <InputField label="cvc" inputName="e.g. 123" />
-        </div>
+        <InputField inputwidth="80px" label="EXP. DATE" inputName="MM" />
+        <InputField inputwidth="80px" inputName="YY" label="(MM /YY)" />
+        <InputField inputwidth="191px" label="CVC" inputName="e.g. 123" />
       </SecondSection>
       <Button>Confirm</Button>
     </div>

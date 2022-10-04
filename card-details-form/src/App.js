@@ -11,7 +11,7 @@ let BgMainImage = require("./images/bg-main-desktop.png");
   const Container = styled.div`
     display: grid;
     grid-template-rows: 100vh;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: 1fr 0.8fr 1fr;
   `;
 
 

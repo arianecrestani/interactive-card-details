@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export default function InputField({ label, inputName, inputwidth }) {
+  
   const InputName = styled.input`
     width: ${(props) => props.inputwidth || "380px"};
     height: 45px;

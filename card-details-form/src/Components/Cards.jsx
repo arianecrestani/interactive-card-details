@@ -1,4 +1,3 @@
-
 import styled from "styled-components";
 
 export default function Cards() {
@@ -9,10 +8,8 @@ export default function Cards() {
     flex-direction: column;
     z-index: 1;
     margin-top: 50%;
-    gap:2rem
-    
-   
-    `;
+    gap: 2rem;
+  `;
   const CardFront = styled.img`
     display: flex;
     width: 447px;
@@ -27,14 +24,10 @@ export default function Cards() {
     margin-left: -100px;
   `;
 
-  const CardDiv2 = styled.div`
-
-  `;
+  const CardDiv2 = styled.div``;
   const Labels = styled.div`
     display: flex;
-    flex-direction:column;
- 
- 
+    flex-direction: column;
   `;
   const LabelNumber = styled.label`
     margin-top: -120px;
@@ -63,12 +56,10 @@ export default function Cards() {
     z-index: auto;
   `;
 
-
   const cardDataNumber = `0000 0000 0000 0000`;
-  const cardDataName = `Ariane Crestani`
-  const cardDate = `00/00`
-  const cardCvc = `000`
-  
+  const cardDataName = `Ariane Crestani`;
+  const cardDate = `00/00`;
+  const cardCvc = `000`;
 
   return (
     <div>

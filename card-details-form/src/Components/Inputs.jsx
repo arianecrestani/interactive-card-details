@@ -6,7 +6,7 @@ export default function Inputs() {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    margin-top: 60%;
+    margin-top: 50%;
     font-family: "Space Grotesk";
   `;
 

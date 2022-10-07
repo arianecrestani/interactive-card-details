@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import InputField from "../Components/InputField";
 
-export default function Inputs() {
   const FirstSection = styled.div`
     display: flex;
     flex-direction: column;
@@ -14,20 +13,9 @@ export default function Inputs() {
     gap: 5px;
     display: flex;
     margin-top: 15px;
-    flex-direction:row;
+    flex-direction: row;
   `;
-  // const InputDate = styled.input`
-  //   width: 80px;
-  //   height: 45px;
-  //   border-radius: 8px;
-  //   border-color: #dfdee0;
-  // `;
-  // const InputCvc = styled.input`
-  //   width: 191px;
-  //   height: 45px;
-  //   border-radius: 8px;
-  //   border-color: #dfdee0;
-  // `;
+
   const Button = styled.button`
     margin-top: 2rem;
     width: 381px;
@@ -36,6 +24,7 @@ export default function Inputs() {
     background: #21092f;
     color: #ffffff;
   `;
+export default function Inputs() {
 
 
   return (

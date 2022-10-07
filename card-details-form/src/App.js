@@ -3,24 +3,27 @@ import styled from "styled-components";
 import Cards from './Components/Cards'
 import Main from './Components/Main'
 import Inputs from './Components/Inputs'
+import { CardProvider } from "./CardContext";
+
+const Container = styled.div`
+  display: grid;
+  grid-template-rows: 100vh;
+  grid-template-columns: 1fr 0.8fr 1fr;
+`;
 
 
 export default function App() {
-let BgMainImage = require("./images/bg-main-desktop.png");
-
-  const Container = styled.div`
-    display: grid;
-    grid-template-rows: 100vh;
-    grid-template-columns: 1fr 0.8fr 1fr;
-  `;
-
+  
 
 
   return (
+    
     <Container>
-      <Main/>
-      <Cards />
-      <Inputs/>
-    </Container>
+      <CardProvider>
+        <Main />
+        <Cards />
+        <Inputs />
+        </CardProvider>
+      </Container>
   );
 }

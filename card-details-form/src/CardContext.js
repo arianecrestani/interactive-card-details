@@ -5,12 +5,8 @@ const CardContext = createContext();
 export function CardProvider({ children }) {
   const [name, setName] = useState("");
 
-  const inputValue = (e) => {
-    setName(e.target.value);
-  };
-
   return (
-    <CardContext.Provider value={{ name, inputValue }}>
+    <CardContext.Provider value={{ name, setName }}>
       {children}
     </CardContext.Provider>
   );

@@ -1,8 +1,8 @@
 import "./App.css";
 import styled from "styled-components";
-import Cards from './Components/Cards'
-import Main from './Components/Main'
-import Inputs from './Components/Inputs'
+import Cards from "./Components/Cards";
+import Main from "./Components/Main";
+import Inputs from "./Components/Inputs";
 import { CardProvider } from "./CardContext";
 
 const Container = styled.div`
@@ -11,19 +11,14 @@ const Container = styled.div`
   grid-template-columns: 1fr 0.8fr 1fr;
 `;
 
-
 export default function App() {
-  
-
-
   return (
-    
     <Container>
       <CardProvider>
         <Main />
         <Cards />
         <Inputs />
-        </CardProvider>
-      </Container>
+      </CardProvider>
+    </Container>
   );
 }

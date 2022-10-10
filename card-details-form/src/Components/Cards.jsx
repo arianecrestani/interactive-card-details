@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import CardContext from "../CardContext";
 import { useContext } from "react";
+import Inputs from "./Inputs";
 
 const CardDiv1 = styled.div`
   display: flex;
@@ -56,28 +57,23 @@ const LabelCvc = styled.label`
 `;
 
 export default function Cards() {
-  const { name, number } = useContext(CardContext);
-
   let BgCardFront = require("../images/bg-card-front.png");
   let BgCardBack = require("../images/bg-card-back.png");
-  //  const cardDataNumber = `0000 0000 0000 0000`;
+  const cardDataNumber = `0000 0000 0000 0000`;
   let cardDataName = `Ariane Crestani`;
   const cardDate = `00/00`;
   const cardCvc = `000`;
+
+  const { name } = useContext(CardContext);
 
   return (
     <div>
       <CardDiv1>
         <CardFront alt="cardFront" src={BgCardFront} />
         <Labels>
-          <LabelNumber>{number}</LabelNumber>
+          <LabelNumber>{cardDataNumber}</LabelNumber>
           <div>
-            {name ? (
-              <LabelName>{name}</LabelName>
-            ) : (
-              <LabelName>{cardDataName}</LabelName>
-            )}
-
+            <LabelName>{name}</LabelName>
             <LabelDate>{cardDate}</LabelDate>
           </div>
         </Labels>

@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import CardContext from "../CardContext";
-import { useContext } from "react";
+import Inputs from "./Inputs";
 
 const InputName = styled.input`
   width: ${(props) => props.inputwidth || "380px"};
@@ -16,14 +15,12 @@ const InputName = styled.input`
 const Label = styled.label`
   display: flex;
 `;
-export default function InputField({ label, inputName, inputwidth }) {
-  const { inputValue } = useContext(CardContext);
-
+export default function InputField({ label, inputName, inputwidth, onChange }) {
   return (
     <div>
       <Label>{label}</Label>
       <InputName
-        onChange={inputValue}
+        onChange={onChange}
         placeholder={inputName}
         inputwidth={inputwidth}
       />

@@ -27,7 +27,8 @@ const Button = styled.button`
   color: #ffffff;
 `;
 export default function Inputs() {
-  const { setName } = useContext(CardContext);
+  const { setName, setNumber, setMonth, setYear, setCvc } =
+    useContext(CardContext);
 
   return (
     <div>
@@ -39,12 +40,39 @@ export default function Inputs() {
             setName(e.target.value);
           }}
         />
-        <InputField label="CARD NUMBER" inputName="e.g. 1234 5678 9123 0000" />
+        <InputField
+          label="CARD NUMBER"
+          inputName="e.g. 1234 5678 9123 0000"
+          onChange={(e) => {
+            setNumber(e.target.value);
+          }}
+        />
       </FirstSection>
       <SecondSection>
-        <InputField inputwidth="80px" label="EXP. DATE" inputName="MM" />
-        <InputField inputwidth="80px" inputName="YY" label="(MM /YY)" />
-        <InputField inputwidth="191px" label="CVC" inputName="e.g. 123" />
+        <InputField
+          inputwidth="80px"
+          label="EXP. DATE"
+          inputName="MM"
+          onChange={(e) => {
+            setMonth(e.target.value);
+          }}
+        />
+        <InputField
+          inputwidth="80px"
+          inputName="YY"
+          label="(MM /YY)"
+          onChange={(e) => {
+            setYear(e.target.value);
+          }}
+        />
+        <InputField
+          inputwidth="191px"
+          label="CVC"
+          inputName="e.g. 123"
+          onChange={(e) => {
+            setCvc(e.target.value);
+          }}
+        />
       </SecondSection>
       <Button>Confirm</Button>
     </div>

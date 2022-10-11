@@ -2,6 +2,7 @@ import styled from "styled-components";
 import InputField from "./InputField";
 import { useContext } from "react";
 import CardContext from "../CardContext";
+import { useEffect } from "react";
 
 const FirstSection = styled.div`
   display: flex;
@@ -27,25 +28,72 @@ const Button = styled.button`
   color: #ffffff;
 `;
 export default function Inputs() {
-  const { setName, setNumber, setMonth, setYear, setCvc } =
-    useContext(CardContext);
+  const {
+    name,
+    number,
+    // month,
+    // year,
+    // cvc,
+    setName,
+    setNumber,
+    setMonth,
+    setYear,
+    setCvc,
+    showInputError,
+    setShowInputError,
+  } = useContext(CardContext);
 
+  useEffect(() => {
+    if (name.length > 24) {
+      setShowInputError(true);
+    } else {
+      setShowInputError(false);
+    }
+  }, [name])
+
+  // useEffect(() => {
+  //   if (number.length > 16) {
+  //     setNumber("");
+  //   }
+  // }, [number]);
+
+  // const inputMonthHandler = () => {
+  //   if (month.length > 3) {
+  //     setMonth("");
+  //   }
+  // };
+  // const inputYearHandler = () => {
+  //   if (year.length > 3) {
+  //     setYear("");
+  //   }
+  // };
+  // const inputCvcHandler = () => {
+  //   if (cvc.length > 3) {
+  //     setCvc("");
+  //   }
+  // };
 
   return (
     <div>
       <FirstSection>
         <InputField
+          showInputError={showInputError}
           label="CARDHOLDER NAME"
           inputName="e.g. Jane Appleseed"
           onChange={(e) => {
-            setName(e.target.value);
+            setName(e.target.value.replace(/[^a-zA-Z]/g, "").trim());
           }}
         />
         <InputField
           label="CARD NUMBER"
           inputName="e.g. 1234 5678 9123 0000"
           onChange={(e) => {
-            setNumber(e.target.value);
+            setNumber(
+              e.target.value
+                // .replace(/\D+/g, "")
+                // .replace(/(.{4})/g, "$1 ")
+                // .trim()
+            );
           }}
         />
       </FirstSection>

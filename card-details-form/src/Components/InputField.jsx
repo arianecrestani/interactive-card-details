@@ -15,7 +15,18 @@ const InputName = styled.input`
 const Label = styled.label`
   display: flex;
 `;
-export default function InputField({ label, inputName, inputwidth, onChange }) {
+const LabelError = styled.label`
+  visibility: ${(props) => props.visibilityLabel || "hidden"};
+  display: flex;
+  color:red;
+`;
+export default function InputField({
+  label,
+  inputName,
+  inputwidth,
+  onChange,
+  showInputError,
+}) {
   return (
     <div>
       <Label>{label}</Label>
@@ -24,6 +35,7 @@ export default function InputField({ label, inputName, inputwidth, onChange }) {
         placeholder={inputName}
         inputwidth={inputwidth}
       />
+      <LabelError visibilityLabel={showInputError}>Can't be blank</LabelError>
     </div>
   );
 }

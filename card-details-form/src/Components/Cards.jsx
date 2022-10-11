@@ -59,12 +59,15 @@ export default function Cards() {
   let BgCardFront = require("../images/bg-card-front.png");
   let BgCardBack = require("../images/bg-card-back.png");
   const cardDataNumber = `0000 0000 0000 0000`;
-  let cardDataName = `Ariane Crestani`;
+  let cardDataName = `Jane Appleseed`;
   const cardMonth = `00/`;
   const cardYear = `00`;
   const cardCvc = `000`;
 
   const { name, number, month, year, cvc } = useContext(CardContext);
+
+
+
 
   return (
     <div>

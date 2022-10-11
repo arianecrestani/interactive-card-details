@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import InputField from "./InputField";
-import { useState, useContext } from "react";
+import { useContext } from "react";
 import CardContext from "../CardContext";
 
 const FirstSection = styled.div`
@@ -29,6 +29,7 @@ const Button = styled.button`
 export default function Inputs() {
   const { setName, setNumber, setMonth, setYear, setCvc } =
     useContext(CardContext);
+
 
   return (
     <div>

@@ -39,23 +39,27 @@ export default function Inputs() {
     setMonth,
     setYear,
     setCvc,
-    showInputError,
+    showNameInputError,
     setShowInputError,
+    showNumberInputError,
+    setShowNumberInputError,
   } = useContext(CardContext);
 
   useEffect(() => {
-    if (name.length > 24) {
+    if (name.length > 24 || name.length < 1) {
       setShowInputError(true);
     } else {
       setShowInputError(false);
     }
-  }, [name])
+  }, [name]);
 
-  // useEffect(() => {
-  //   if (number.length > 16) {
-  //     setNumber("");
-  //   }
-  // }, [number]);
+  useEffect(() => {
+    if (number.length >= 19) {
+      setShowNumberInputError(true);
+    } else {
+      setShowNumberInputError(false);
+    }
+  }, [number]);
 
   // const inputMonthHandler = () => {
   //   if (month.length > 3) {
@@ -77,22 +81,26 @@ export default function Inputs() {
     <div>
       <FirstSection>
         <InputField
-          showInputError={showInputError}
+          maxLength={24}
+          showNameInputError={showNameInputError}
           label="CARDHOLDER NAME"
           inputName="e.g. Jane Appleseed"
           onChange={(e) => {
-            setName(e.target.value.replace(/[^a-zA-Z]/g, "").trim());
+            e.target.value = e.target.value.replace(/[^a-zA-Z]/g, "").trim();
+            setName(e.target.value);
           }}
         />
         <InputField
+          maxLength={19}
           label="CARD NUMBER"
+          showNumberInputError={showNumberInputError}
           inputName="e.g. 1234 5678 9123 0000"
           onChange={(e) => {
             setNumber(
-              e.target.value
-                // .replace(/\D+/g, "")
-                // .replace(/(.{4})/g, "$1 ")
-                // .trim()
+              (e.target.value = e.target.value
+                .replace(/\D+/g, "")
+                .replace(/(.{4})/g, "$1 ")
+                .trim())
             );
           }}
         />

@@ -25,17 +25,25 @@ export default function InputField({
   inputName,
   inputwidth,
   onChange,
-  showInputError,
+  showNameInputError,
+  showNumberInputError,
+  maxLength
 }) {
   return (
     <div>
       <Label>{label}</Label>
       <InputName
+        maxLength={maxLength}
         onChange={onChange}
         placeholder={inputName}
         inputwidth={inputwidth}
       />
-      <LabelError visibilityLabel={showInputError}>Can't be blank</LabelError>
+      <LabelError visibilityLabel={showNameInputError}>
+        Can't be blank
+      </LabelError>
+      {/* <LabelError visibilityLabel={showNumberInputError}>
+        Wrong format,numbers only
+      </LabelError> */}
     </div>
   );
 }

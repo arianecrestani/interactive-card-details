@@ -65,14 +65,15 @@ export default function Inputs() {
   }, [name]);
 
   useEffect(() => {
-    if (number.length >= 19) {
+    if (number.length > 19) {
       setShowNumberError(true);
     } else {
       setShowNumberError(false);
     }
   }, [number]);
+
   useEffect(() => {
-    if (month.length < 0 || month < 1 || month > 12) {
+    if (month.length <= 0 || month < 1 || month > 12) {
       setShowMonthError(true);
     } else {
       setShowMonthError(false);
@@ -80,7 +81,9 @@ export default function Inputs() {
   }, [month]);
 
   useEffect(() => {
-    if (year.length < 0 || year < 22) {
+    let currentYear = new Date().getFullYear();
+    currentYear = currentYear.toString().substring(2);
+    if (year.length < 0 || year < currentYear) {
       setShowYearError(true);
     } else {
       setShowYearError(false);
@@ -106,10 +109,7 @@ export default function Inputs() {
           inputName="e.g. Jane Appleseed"
           onChange={(e) => {
             setName(
-              (e.target.value = e.target.value
-                .replace(/[^a-zA-Z' ']/g, "")
-                //.trim()
-              )
+              (e.target.value = e.target.value.replace(/[^a-zA-Z' ']/g, ""))
             );
           }}
         />

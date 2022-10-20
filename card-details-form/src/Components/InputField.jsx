@@ -9,7 +9,7 @@ const InputName = styled.input`
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
-  border-color: #dfdee0;
+  border-color: ${(props) => props.error ? "red" : "#dfdee0"};
 `;
 const Label = styled.label`
   display: flex;
@@ -17,6 +17,7 @@ const Label = styled.label`
 const Error = styled.label`
   visibility: ${(props) => props.visibilityLabel || "hidden"};
   display: flex;
+  color: red;
 `;
 
 export default function InputField({
@@ -26,7 +27,7 @@ export default function InputField({
   onChange,
   showError,
   errorDescription,
-  maxLength,
+  maxLength
 }) {
   return (
     <div>
@@ -37,6 +38,7 @@ export default function InputField({
         onChange={onChange}
         placeholder={inputName}
         inputwidth={inputwidth}
+        error={showError}
       />
       <div>
         <Error visibilityLabel={showError}>{errorDescription}</Error>

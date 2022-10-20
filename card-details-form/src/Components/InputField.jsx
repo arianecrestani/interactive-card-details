@@ -11,39 +11,36 @@ const InputName = styled.input`
   font-size: 18px;
   border-color: #dfdee0;
 `;
-
 const Label = styled.label`
   display: flex;
 `;
-const LabelError = styled.label`
+const Error = styled.label`
   visibility: ${(props) => props.visibilityLabel || "hidden"};
   display: flex;
-  color:red;
 `;
+
 export default function InputField({
   label,
   inputName,
   inputwidth,
   onChange,
-  showNameInputError,
-  showNumberInputError,
-  maxLength
+  showError,
+  errorDescription,
+  maxLength,
 }) {
   return (
     <div>
       <Label>{label}</Label>
+
       <InputName
         maxLength={maxLength}
         onChange={onChange}
         placeholder={inputName}
         inputwidth={inputwidth}
       />
-      <LabelError visibilityLabel={showNameInputError}>
-        Can't be blank
-      </LabelError>
-      {/* <LabelError visibilityLabel={showNumberInputError}>
-        Wrong format,numbers only
-      </LabelError> */}
+      <div>
+        <Error visibilityLabel={showError}>{errorDescription}</Error>
+      </div>
     </div>
   );
 }

@@ -45,13 +45,12 @@ const LabelName = styled(LabelNumber)`
   letter-spacing: 2px;
   font-size: 14px;
   line-height: 18px;
-  justify-content: space-around;
 `;
 const LabelDate = styled(LabelName)`
   margin-left: 140px;
 `;
 const LabelCvc = styled.label`
-  margin-bottom: -100px;
+  margin-bottom: 100px;
   z-index: auto;
 `;
 
@@ -65,9 +64,6 @@ export default function Cards() {
   const cardCvc = `000`;
 
   const { name, number, month, year, cvc } = useContext(CardContext);
-
-
-
 
   return (
     <div>
@@ -99,11 +95,7 @@ export default function Cards() {
         </Labels>
       </CardDiv1>
       <CardDiv2>
-        {cvc ? (
-          <LabelNumber>{cvc}</LabelNumber>
-        ) : (
-          <LabelNumber>{cardCvc}</LabelNumber>
-        )}
+        {cvc ? <LabelCvc>{cvc}</LabelCvc> : <LabelCvc>{cardCvc}</LabelCvc>}
         <CardBack alt="cardBack" src={BgCardBack} />
       </CardDiv2>
     </div>

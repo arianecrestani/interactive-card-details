@@ -7,16 +7,18 @@ import { useEffect } from "react";
 const FirstSection = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.5rem;
   margin-top: 50%;
   font-family: "Space Grotesk";
 `;
 
 const SecondSection = styled.div`
+  display: flex;
+  margin-top: 10px;
+  flex-direction: row;
   gap: 5px;
   display: flex;
   margin-top: 15px;
-  flex-direction: row;
 `;
 
 const Button = styled.button`
@@ -31,19 +33,28 @@ export default function Inputs() {
   const {
     name,
     number,
-    // month,
-    // year,
-    // cvc,
+    month,
+    year,
+    cvc,
     setName,
     setNumber,
     setMonth,
     setYear,
     setCvc,
-    showNameInputError,
+    showInputError,
     setShowInputError,
-    showNumberInputError,
-    setShowNumberInputError,
+    showNumberError,
+    setShowNumberError,
+    showMonthError,
+    setShowMonthError,
+    showYearError,
+    setShowYearError,
+    showCvcError,
+    setShowCvcError,
   } = useContext(CardContext);
+
+  const errorBlank = `Can't be blank`;
+  const errorFormat = ` Wrong format,numbers only`;
 
   useEffect(() => {
     if (name.length > 24 || name.length < 1) {
@@ -55,45 +66,58 @@ export default function Inputs() {
 
   useEffect(() => {
     if (number.length >= 19) {
-      setShowNumberInputError(true);
+      setShowNumberError(true);
     } else {
-      setShowNumberInputError(false);
+      setShowNumberError(false);
     }
   }, [number]);
+  useEffect(() => {
+    if (month.length < 0 || month < 1 || month > 12) {
+      setShowMonthError(true);
+    } else {
+      setShowMonthError(false);
+    }
+  }, [month]);
 
-  // const inputMonthHandler = () => {
-  //   if (month.length > 3) {
-  //     setMonth("");
-  //   }
-  // };
-  // const inputYearHandler = () => {
-  //   if (year.length > 3) {
-  //     setYear("");
-  //   }
-  // };
-  // const inputCvcHandler = () => {
-  //   if (cvc.length > 3) {
-  //     setCvc("");
-  //   }
-  // };
+  useEffect(() => {
+    if (year.length < 0 || year < 22) {
+      setShowYearError(true);
+    } else {
+      setShowYearError(false);
+    }
+  }, [year]);
+
+  useEffect(() => {
+    if (cvc.length !== 3) {
+      setShowCvcError(true);
+    } else {
+      setShowCvcError(false);
+    }
+  }, [cvc]);
 
   return (
     <div>
       <FirstSection>
         <InputField
+          errorDescription={errorBlank}
           maxLength={24}
-          showNameInputError={showNameInputError}
+          showError={showInputError}
           label="CARDHOLDER NAME"
           inputName="e.g. Jane Appleseed"
           onChange={(e) => {
-            e.target.value = e.target.value.replace(/[^a-zA-Z]/g, "").trim();
-            setName(e.target.value);
+            setName(
+              (e.target.value = e.target.value
+                .replace(/[^a-zA-Z' ']/g, "")
+                //.trim()
+              )
+            );
           }}
         />
         <InputField
+          errorDescription={errorFormat}
           maxLength={19}
           label="CARD NUMBER"
-          showNumberInputError={showNumberInputError}
+          showError={showNumberError}
           inputName="e.g. 1234 5678 9123 0000"
           onChange={(e) => {
             setNumber(
@@ -107,27 +131,36 @@ export default function Inputs() {
       </FirstSection>
       <SecondSection>
         <InputField
+          showError={showMonthError}
+          errorDescription={errorBlank}
+          maxLength={2}
           inputwidth="80px"
           label="EXP. DATE"
           inputName="MM"
           onChange={(e) => {
-            setMonth(e.target.value);
+            setMonth((e.target.value = e.target.value.replace(/\D+/g, "")));
           }}
         />
         <InputField
+          maxLength={2}
+          errorDescription={errorBlank}
+          showError={showYearError}
           inputwidth="80px"
           inputName="YY"
           label="(MM /YY)"
           onChange={(e) => {
-            setYear(e.target.value);
+            setYear((e.target.value = e.target.value.replace(/\D+/g, "")));
           }}
         />
         <InputField
+          errorDescription={errorBlank}
+          showError={showCvcError}
+          maxLength={3}
           inputwidth="191px"
           label="CVC"
           inputName="e.g. 123"
           onChange={(e) => {
-            setCvc(e.target.value);
+            setCvc((e.target.value = e.target.value.replace(/\D+/g, "")));
           }}
         />
       </SecondSection>

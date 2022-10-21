@@ -8,12 +8,6 @@ export function CardProvider({ children }) {
   const [month, setMonth] = useState("");
   const [year, setYear] = useState("");
   const [cvc, setCvc] = useState("");
-  const [showInputError, setShowInputError] = useState(false);
-  const [showNumberError, setShowNumberError] = useState(false);
-  const [showMonthError, setShowMonthError] = useState(false);
-  const [showYearError, setShowYearError] = useState(false);
-  const [showCvcError, setShowCvcError] = useState(false);
-
 
   return (
     <CardContext.Provider
@@ -28,16 +22,6 @@ export function CardProvider({ children }) {
         setYear,
         cvc,
         setCvc,
-        showInputError,
-        setShowInputError,
-        showNumberError,
-        setShowNumberError,
-        showMonthError,
-        setShowMonthError,
-        showYearError,
-        setShowYearError,
-        showCvcError,
-        setShowCvcError,
       }}
     >
       {children}

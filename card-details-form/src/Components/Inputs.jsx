@@ -2,7 +2,7 @@ import styled from "styled-components";
 import InputField from "./InputField";
 import { useContext } from "react";
 import CardContext from "../CardContext";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const FirstSection = styled.div`
   display: flex;
@@ -30,6 +30,11 @@ const Button = styled.button`
   color: #ffffff;
 `;
 export default function Inputs() {
+  const [showInputError, setShowInputError] = useState(false);
+  const [showNumberError, setShowNumberError] = useState(false);
+  const [showMonthError, setShowMonthError] = useState(false);
+  const [showYearError, setShowYearError] = useState(false);
+  const [showCvcError, setShowCvcError] = useState(false);
   const {
     name,
     number,
@@ -41,16 +46,6 @@ export default function Inputs() {
     setMonth,
     setYear,
     setCvc,
-    showInputError,
-    setShowInputError,
-    showNumberError,
-    setShowNumberError,
-    showMonthError,
-    setShowMonthError,
-    showYearError,
-    setShowYearError,
-    showCvcError,
-    setShowCvcError,
   } = useContext(CardContext);
 
   const errorBlank = `Can't be blank`;
@@ -83,6 +78,7 @@ export default function Inputs() {
   useEffect(() => {
     let currentYear = new Date().getFullYear();
     currentYear = currentYear.toString().substring(2);
+
     if (year.length < 0 || year < currentYear) {
       setShowYearError(true);
     } else {
@@ -91,13 +87,17 @@ export default function Inputs() {
   }, [year]);
 
   useEffect(() => {
-    if (cvc.length !== 3) {
-      setShowCvcError(true);
-    } else {
-      setShowCvcError(false);
-    }
+    setShowCvcError(cvc.length !== 3);
   }, [cvc]);
 
+  const onConfirm = () => {
+    // quando todos os inputs estivem preenchidos ai vai mostrar uma nova ui, e se cada input nao tiver de acordo vai mostar um label errror
+    // setShowCvcError(cvc.length !== 3)
+    // setShowYearError(false);
+  };
+  const removeLetters = (value) => {
+    return value.replace(/\D+/g, "");
+  };
   return (
     <div>
       <FirstSection>
@@ -138,7 +138,7 @@ export default function Inputs() {
           label="EXP. DATE"
           inputName="MM"
           onChange={(e) => {
-            setMonth((e.target.value = e.target.value.replace(/\D+/g, "")));
+            setMonth((e.target.value = removeLetters(e.target.value)));
           }}
         />
         <InputField
@@ -149,7 +149,7 @@ export default function Inputs() {
           inputName="YY"
           label="(MM /YY)"
           onChange={(e) => {
-            setYear((e.target.value = e.target.value.replace(/\D+/g, "")));
+            setYear((e.target.value = removeLetters(e.target.value)));
           }}
         />
         <InputField
@@ -160,11 +160,11 @@ export default function Inputs() {
           label="CVC"
           inputName="e.g. 123"
           onChange={(e) => {
-            setCvc((e.target.value = e.target.value.replace(/\D+/g, "")));
+            setCvc((e.target.value = removeLetters(e.target.value)));
           }}
         />
       </SecondSection>
-      <Button>Confirm</Button>
+      <Button onClick={onConfirm}>Confirm</Button>
     </div>
   );
 }

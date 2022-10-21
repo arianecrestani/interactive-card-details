@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Inputs from "./Inputs";
 
 const InputName = styled.input`
   width: ${(props) => props.inputwidth || "380px"};

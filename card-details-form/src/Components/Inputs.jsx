@@ -109,6 +109,9 @@ export default function Inputs() {
     ) {
       setFollowUp(true);
     }
+    if (followUp) {
+      setFollowUp(false);
+    }
 
     // quando todos os inputs estivem preenchidos ai vai mostrar uma nova ui, e se cada input nao tiver de acordo vai mostar um label errror
   };
@@ -184,7 +187,6 @@ export default function Inputs() {
               }}
             />
           </SecondSection>
-          <Button onClick={onConfirm}>Confirm</Button>
         </>
       )}
       {followUp && (
@@ -194,9 +196,9 @@ export default function Inputs() {
             alt="main"
             src={require("../images/icon-complete.svg").default}
           />
-          <Button onClick={onConfirm}>Confirm</Button>
         </>
       )}
+      <Button onClick={onConfirm}>Confirm</Button>
     </div>
   );
 }

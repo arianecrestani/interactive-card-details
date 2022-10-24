@@ -22,6 +22,7 @@ const SecondSection = styled.div`
 `;
 
 const Button = styled.button`
+  display: flex;
   margin-top: 2rem;
   width: 381px;
   height: 53px;
@@ -110,7 +111,12 @@ export default function Inputs() {
       setFollowUp(true);
     }
     if (followUp) {
-      setFollowUp(false);
+      setName("")
+      setNumber("")
+      setMonth("")
+      setYear("")
+      setCvc("")
+      setFollowUp(false)
     }
 
     // quando todos os inputs estivem preenchidos ai vai mostrar uma nova ui, e se cada input nao tiver de acordo vai mostar um label errror

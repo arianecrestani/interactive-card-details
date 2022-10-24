@@ -29,12 +29,20 @@ const Button = styled.button`
   background: #21092f;
   color: #ffffff;
 `;
+const Updated = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-top: 50%;
+`;
+const ImageUpadte = styled.img``;
 export default function Inputs() {
   const [showInputError, setShowInputError] = useState(false);
   const [showNumberError, setShowNumberError] = useState(false);
   const [showMonthError, setShowMonthError] = useState(false);
   const [showYearError, setShowYearError] = useState(false);
   const [showCvcError, setShowCvcError] = useState(false);
+  const [followUp, setFollowUp] = useState(false);
+
   const {
     name,
     number,
@@ -90,81 +98,105 @@ export default function Inputs() {
     setShowCvcError(cvc.length !== 3);
   }, [cvc]);
 
-  const onConfirm = () => {
+  const onConfirm = (e) => {
+    e.preventDefault();
+    if (
+      !showInputError &&
+      !showNumberError &&
+      !showMonthError &&
+      !showYearError &&
+      !showCvcError
+    ) {
+      setFollowUp(true);
+    }
+
     // quando todos os inputs estivem preenchidos ai vai mostrar uma nova ui, e se cada input nao tiver de acordo vai mostar um label errror
-    // setShowCvcError(cvc.length !== 3)
-    // setShowYearError(false);
   };
   const removeLetters = (value) => {
     return value.replace(/\D+/g, "");
   };
+
   return (
     <div>
-      <FirstSection>
-        <InputField
-          errorDescription={errorBlank}
-          maxLength={24}
-          showError={showInputError}
-          label="CARDHOLDER NAME"
-          inputName="e.g. Jane Appleseed"
-          onChange={(e) => {
-            setName(
-              (e.target.value = e.target.value.replace(/[^a-zA-Z' ']/g, ""))
-            );
-          }}
-        />
-        <InputField
-          errorDescription={errorFormat}
-          maxLength={19}
-          label="CARD NUMBER"
-          showError={showNumberError}
-          inputName="e.g. 1234 5678 9123 0000"
-          onChange={(e) => {
-            setNumber(
-              (e.target.value = e.target.value
-                .replace(/\D+/g, "")
-                .replace(/(.{4})/g, "$1 ")
-                .trim())
-            );
-          }}
-        />
-      </FirstSection>
-      <SecondSection>
-        <InputField
-          showError={showMonthError}
-          errorDescription={errorBlank}
-          maxLength={2}
-          inputwidth="80px"
-          label="EXP. DATE"
-          inputName="MM"
-          onChange={(e) => {
-            setMonth((e.target.value = removeLetters(e.target.value)));
-          }}
-        />
-        <InputField
-          maxLength={2}
-          errorDescription={errorBlank}
-          showError={showYearError}
-          inputwidth="80px"
-          inputName="YY"
-          label="(MM /YY)"
-          onChange={(e) => {
-            setYear((e.target.value = removeLetters(e.target.value)));
-          }}
-        />
-        <InputField
-          errorDescription={errorBlank}
-          showError={showCvcError}
-          maxLength={3}
-          inputwidth="191px"
-          label="CVC"
-          inputName="e.g. 123"
-          onChange={(e) => {
-            setCvc((e.target.value = removeLetters(e.target.value)));
-          }}
-        />
-      </SecondSection>
-      <Button onClick={onConfirm}>Confirm</Button>
+      {!followUp && (
+        <>
+          <FirstSection>
+            <InputField
+              errorDescription={errorBlank}
+              maxLength={24}
+              showError={showInputError}
+              label="CARDHOLDER NAME"
+              inputName="e.g. Jane Appleseed"
+              onChange={(e) => {
+                setName(
+                  (e.target.value = e.target.value.replace(/[^a-zA-Z' ']/g, ""))
+                );
+              }}
+            />
+            <InputField
+              errorDescription={errorFormat}
+              maxLength={19}
+              label="CARD NUMBER"
+              showError={showNumberError}
+              inputName="e.g. 1234 5678 9123 0000"
+              onChange={(e) => {
+                setNumber(
+                  (e.target.value = e.target.value
+                    .replace(/\D+/g, "")
+                    .replace(/(.{4})/g, "$1 ")
+                    .trim())
+                );
+              }}
+            />
+          </FirstSection>
+          <SecondSection>
+            <InputField
+              showError={showMonthError}
+              errorDescription={errorBlank}
+              maxLength={2}
+              inputwidth="80px"
+              label="EXP. DATE"
+              inputName="MM"
+              onChange={(e) => {
+                setMonth((e.target.value = removeLetters(e.target.value)));
+              }}
+            />
+            <InputField
+              maxLength={2}
+              errorDescription={errorBlank}
+              showError={showYearError}
+              inputwidth="80px"
+              inputName="YY"
+              label="(MM /YY)"
+              onChange={(e) => {
+                setYear((e.target.value = removeLetters(e.target.value)));
+              }}
+            />
+            <InputField
+              errorDescription={errorBlank}
+              showError={showCvcError}
+              maxLength={3}
+              inputwidth="191px"
+              label="CVC"
+              inputName="e.g. 123"
+              onChange={(e) => {
+                setCvc((e.target.value = removeLetters(e.target.value)));
+              }}
+            />
+          </SecondSection>
+          <Button onClick={onConfirm}>Confirm</Button>
+        </>
+      )}
+      {followUp && (
+        <>
+          <Updated>Thank you</Updated>
+          <ImageUpadte
+            alt="main"
+            src={require("../images/icon-complete.svg").default}
+          />
+          <Button onClick={onConfirm}>Confirm</Button>
+        </>
+      )}
     </div>
   );
 }

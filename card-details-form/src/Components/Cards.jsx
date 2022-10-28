@@ -17,13 +17,17 @@ const CardFront = styled.img`
   margin-left: -250px;
 `;
 const CardBack = styled.img`
-  display: flex;
-  width: 447px;
-  height: 245px;
-  margin-left: -100px;
+  
+  width: 100%;
 `;
 
-const CardDiv2 = styled.div``;
+const CardDiv2 = styled.div`
+    height: auto;
+    position: absolute;
+    bottom: 180px;
+    left: 520px;
+}
+`;
 const Labels = styled.div`
   display: flex;
   flex-direction: column;
@@ -50,8 +54,13 @@ const LabelDate = styled(LabelName)`
   margin-left: 140px;
 `;
 const LabelCvc = styled.label`
-  margin-bottom: 100px;
-  z-index: auto;
+  display:flex;
+  position: absolute;
+  color: #fff;
+  top: 120px;
+  right: 50px;
+  font-size: 13px;
+  letter-spacing: 2px;
 `;
 
 export default function Cards() {

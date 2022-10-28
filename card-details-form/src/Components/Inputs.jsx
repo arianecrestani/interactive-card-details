@@ -24,11 +24,13 @@ const SecondSection = styled.div`
 const Button = styled.button`
   display: flex;
   margin-top: 2rem;
-  width: 381px;
+  width: 390px;
   height: 53px;
   border-radius: 8px;
   background: #21092f;
   color: #ffffff;
+  font-size: 20px;
+  align-items: center;
 `;
 const Updated = styled.div`
   display: flex;
@@ -60,66 +62,66 @@ export default function Inputs() {
   const errorBlank = `Can't be blank`;
   const errorFormat = ` Wrong format,numbers only`;
 
-  useEffect(() => {
+  const checkInputName = () => {
     if (name.length > 24 || name.length < 1) {
       setShowInputError(true);
+      console.log("checkInputName true");
+      return true;
     } else {
       setShowInputError(false);
+      return false;
     }
-  }, [name]);
-
-  useEffect(() => {
-    if (number.length > 19) {
+  };
+  const checkInputNumber = () => {
+    if (number.length < 19) {
       setShowNumberError(true);
     } else {
       setShowNumberError(false);
     }
-  }, [number]);
-
-  useEffect(() => {
+  };
+  const checkInputMonth = () => {
     if (month.length <= 0 || month < 1 || month > 12) {
       setShowMonthError(true);
     } else {
       setShowMonthError(false);
     }
-  }, [month]);
-
-  useEffect(() => {
+  };
+  const checkInputYear = () => {
     let currentYear = new Date().getFullYear();
     currentYear = currentYear.toString().substring(2);
-
     if (year.length < 0 || year < currentYear) {
       setShowYearError(true);
     } else {
       setShowYearError(false);
     }
-  }, [year]);
+  };
+  const checkInputCvc = () => {
+    if (cvc.length !== 3) {
+      setShowCvcError(true);
+    } else {
+      setShowCvcError(false);
+    }
+  };
 
-  useEffect(() => {
-    setShowCvcError(cvc.length !== 3);
-  }, [cvc]);
-
-  const onConfirm = (e) => {
-    e.preventDefault();
+  const onConfirm = () => {
     if (
-      !showInputError &&
-      !showNumberError &&
-      !showMonthError &&
-      !showYearError &&
-      !showCvcError
+      !checkInputName() &&
+      !checkInputNumber() &&
+      !checkInputMonth() &&
+      !checkInputYear() &&
+      !checkInputCvc()
     ) {
       setFollowUp(true);
+    } else {
+      setFollowUp(false);
     }
-    if (followUp) {
-      setName("")
-      setNumber("")
-      setMonth("")
-      setYear("")
-      setCvc("")
-      setFollowUp(false)
+    if (!followUp) {
+      setName("");
+      setNumber("");
+      setMonth("");
+      setYear("");
+      setCvc("");
     }
-
-    // quando todos os inputs estivem preenchidos ai vai mostrar uma nova ui, e se cada input nao tiver de acordo vai mostar um label errror
   };
   const removeLetters = (value) => {
     return value.replace(/\D+/g, "");

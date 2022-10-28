@@ -68,7 +68,6 @@ export default function Inputs() {
   const checkInputName = () => {
     if (name.length > 24 || name.length < 1) {
       setShowInputError(true);
-      console.log("checkInputName true");
       return true;
     } else {
       setShowInputError(false);
@@ -85,6 +84,7 @@ export default function Inputs() {
     }
   };
   const checkInputMonth = () => {
+    console.log("show error true");
     if (month.length <= 0 || month < 1 || month > 12) {
       setShowMonthError(true);
       return true;
@@ -115,13 +115,13 @@ export default function Inputs() {
   };
 
   const onConfirm = () => {
-    if (
-      !checkInputName() &&
-      !checkInputNumber() &&
-      !checkInputMonth() &&
-      !checkInputYear() &&
-      !checkInputCvc() 
-    ) {
+    const name = checkInputName();
+    const number = checkInputNumber();
+    const month = checkInputMonth();
+    const year = checkInputYear();
+    const cvc = checkInputCvc();
+
+    if (!name && !number && !month && !year && !cvc) {
       setFollowUp(true);
     } else {
       setFollowUp(false);

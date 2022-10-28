@@ -61,6 +61,9 @@ export default function Inputs() {
 
   const errorBlank = `Can't be blank`;
   const errorFormat = ` Wrong format,numbers only`;
+  const removeLetters = (value) => {
+    return value.replace(/\D+/g, "");
+  };
 
   const checkInputName = () => {
     if (name.length > 24 || name.length < 1) {
@@ -75,15 +78,19 @@ export default function Inputs() {
   const checkInputNumber = () => {
     if (number.length < 19) {
       setShowNumberError(true);
+      return true;
     } else {
       setShowNumberError(false);
+      return false;
     }
   };
   const checkInputMonth = () => {
     if (month.length <= 0 || month < 1 || month > 12) {
       setShowMonthError(true);
+      return true;
     } else {
       setShowMonthError(false);
+      return false;
     }
   };
   const checkInputYear = () => {
@@ -91,15 +98,19 @@ export default function Inputs() {
     currentYear = currentYear.toString().substring(2);
     if (year.length < 0 || year < currentYear) {
       setShowYearError(true);
+      return true;
     } else {
       setShowYearError(false);
+      return false;
     }
   };
   const checkInputCvc = () => {
     if (cvc.length !== 3) {
       setShowCvcError(true);
+      return true;
     } else {
       setShowCvcError(false);
+      return false;
     }
   };
 
@@ -109,7 +120,7 @@ export default function Inputs() {
       !checkInputNumber() &&
       !checkInputMonth() &&
       !checkInputYear() &&
-      !checkInputCvc()
+      !checkInputCvc() 
     ) {
       setFollowUp(true);
     } else {
@@ -123,13 +134,10 @@ export default function Inputs() {
       setCvc("");
     }
   };
-  const removeLetters = (value) => {
-    return value.replace(/\D+/g, "");
-  };
 
   return (
     <div>
-      {!followUp && (
+      {!followUp ? (
         <>
           <FirstSection>
             <InputField
@@ -196,8 +204,7 @@ export default function Inputs() {
             />
           </SecondSection>
         </>
-      )}
-      {followUp && (
+      ) : (
         <>
           <Updated>Thank you</Updated>
           <ImageUpadte

@@ -17,15 +17,18 @@ const CardFront = styled.img`
   margin-left: -250px;
 `;
 const CardBack = styled.img`
-  
-  width: 100%;
+  width: 447px;
+  display: flex;
+  height: 245px;
+  margin-left: -100px;
 `;
 
 const CardDiv2 = styled.div`
-    height: auto;
-    position: absolute;
-    bottom: 180px;
-    left: 520px;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+  margin-top: 5%;
+  gap: 1rem;
 }
 `;
 const Labels = styled.div`
@@ -54,13 +57,15 @@ const LabelDate = styled(LabelName)`
   margin-left: 140px;
 `;
 const LabelCvc = styled.label`
-  display:flex;
-  position: absolute;
-  color: #fff;
-  top: 120px;
-  right: 50px;
-  font-size: 13px;
-  letter-spacing: 2px;
+  display: flex;
+  margin-top: -155px;
+  z-index: 1;
+  color: #ffff;
+  margin-left: 250px;
+  letter-spacing: 3.42222px;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 36px;
 `;
 
 export default function Cards() {
@@ -104,8 +109,8 @@ export default function Cards() {
         </Labels>
       </CardDiv1>
       <CardDiv2>
-        {cvc ? <LabelCvc>{cvc}</LabelCvc> : <LabelCvc>{cardCvc}</LabelCvc>}
         <CardBack alt="cardBack" src={BgCardBack} />
+        {cvc ? <LabelCvc>{cvc}</LabelCvc> : <LabelCvc>{cardCvc}</LabelCvc>}
       </CardDiv2>
     </div>
   );

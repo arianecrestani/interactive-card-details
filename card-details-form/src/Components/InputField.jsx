@@ -5,13 +5,16 @@ const InputName = styled.input`
   height: 45px;
   font-family: "Space Grotesk";
   border-radius: 8px;
+  color:#21092F;
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
-  border-color: ${(props) => props.error ? "red" : "#dfdee0"};
+  border-color: ${(props) => (props.error ? "red" : "#dfdee0")};
 `;
 const Label = styled.label`
   display: flex;
+  color: #21092f;
+  
 `;
 const Error = styled.label`
   visibility: ${(props) => props.visibilityLabel || "hidden"};

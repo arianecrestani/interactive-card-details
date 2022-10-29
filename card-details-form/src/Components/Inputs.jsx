@@ -31,13 +31,27 @@ const Button = styled.button`
   color: #ffffff;
   font-size: 20px;
   align-items: center;
+  justify-content: center;
 `;
 const Updated = styled.div`
+  font-size: 28px;
+`;
+const UpdatedMsg = styled.div`
+  font-style: Space-Grotesk;
+  font-size: 18px;
+  color: #8f8694;
+`;
+const TransactionAproved = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: center;
   margin-top: 50%;
+  margin-right: 40%;
+  gap: 2rem
 `;
-const ImageUpadte = styled.img``;
+const ImageUpadte = styled.img`
+  width: 80px;
+`;
 export default function Inputs() {
   const [showInputError, setShowInputError] = useState(false);
   const [showNumberError, setShowNumberError] = useState(false);
@@ -60,7 +74,8 @@ export default function Inputs() {
   } = useContext(CardContext);
 
   const errorBlank = `Can't be blank`;
-  const errorFormat = ` Wrong format,numbers only`;
+  const errorFormat = `Wrong format,numbers only`;
+  const updateMsg = `we've have added your card details`;
   const removeLetters = (value) => {
     return value.replace(/\D+/g, "");
   };
@@ -205,13 +220,14 @@ export default function Inputs() {
           </SecondSection>
         </>
       ) : (
-        <>
-          <Updated>Thank you</Updated>
+        <TransactionAproved>
           <ImageUpadte
             alt="main"
             src={require("../images/icon-complete.svg").default}
           />
-        </>
+          <Updated>Thank you</Updated>
+          <UpdatedMsg>{updateMsg}</UpdatedMsg>
+        </TransactionAproved>
       )}
       <Button onClick={onConfirm}>Confirm</Button>
     </div>

@@ -2,12 +2,18 @@ import styled from "styled-components";
 import CardContext from "../CardContext";
 import { useContext } from "react";
 
+
 const CardDiv1 = styled.div`
   display: flex;
   flex-direction: column;
   z-index: 1;
   margin-top: 50%;
   gap: 2rem;
+  @media (max-width: 450px) {
+    margin-top: 0%;
+    gap: 0rem;
+    z-index: 1;
+  }
 `;
 const CardFront = styled.img`
   display: flex;
@@ -15,18 +21,32 @@ const CardFront = styled.img`
   display: flex;
   height: 245px;
   margin-left: -250px;
+  @media (max-width: 450px) {
+    width: 286px;
+    height: 157px;
+    margin-left: 0px;
+    // margin-left: 10px;
+    // margin-top: -27%;
+  }
 `;
 const CardBack = styled.img`
   width: 447px;
   display: flex;
   height: 245px;
   margin-left: -100px;
+  @media (max-width: 450px) {
+    width: 286px;
+    height: 157px;
+    // margin-left: 100px;
+    // margin-top: -325px;
+    margin-left: 0px;
+  }
 `;
 
 const CardDiv2 = styled.div`
   display: flex;
   flex-direction: column;
-  z-index: 1;
+
   margin-top: 5%;
   gap: 1rem;
 }
@@ -46,6 +66,7 @@ const LabelNumber = styled.label`
   font-weight: 500;
   font-size: 28px;
   line-height: 36px;
+
 `;
 const LabelName = styled(LabelNumber)`
   margin-top: -0px;

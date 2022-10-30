@@ -9,6 +9,11 @@ const Container = styled.div`
   display: grid;
   grid-template-rows: 100vh;
   grid-template-columns: 1fr 0.8fr 1fr;
+  @media (max-width:450px) {
+   display:flex;
+   flex-direction:column;
+   
+  }
 `;
 
 export default function App() {

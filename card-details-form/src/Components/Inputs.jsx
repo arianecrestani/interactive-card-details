@@ -10,6 +10,9 @@ const FirstSection = styled.div`
   gap: 0.5rem;
   margin-top: 50%;
   font-family: "Space Grotesk";
+  @media (max-width: 450px) {
+    margin-top: 15%;
+  }
 `;
 
 const SecondSection = styled.div`

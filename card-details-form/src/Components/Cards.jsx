@@ -36,7 +36,7 @@ const Labels = styled.div`
   flex-direction: column;
 `;
 const LabelNumber = styled.label`
-  margin-top: 68px;
+  margin-top: 53px;
   padding: 15px;
   z-index: auto;
   color: #ffffff;
@@ -69,11 +69,11 @@ const LabelCvc = styled.label`
 `;
 const CardLogo = styled.img`
   display: flex;
-  width: 55px;
+  width: 70px;
   z-index: 1;
   margin-top: -248px;
   margin-left: -220px;
-  height: 40px;
+  height: 50px;
 `;
 
 export default function Cards() {

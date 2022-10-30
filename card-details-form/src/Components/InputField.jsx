@@ -1,26 +1,28 @@
 import styled from "styled-components";
 
 const InputName = styled.input`
-  width: ${(props) => props.inputwidth || "380px"};
+  width: ${(props) => props.inputwidth || "370px"};
   height: 45px;
   font-family: "Space Grotesk";
   border-radius: 8px;
-  color:#21092F;
+  color: #21092f;
   font-style: normal;
   font-weight: 500;
   font-size: 18px;
   border-color: ${(props) => (props.error ? "red" : "#dfdee0")};
+
 `;
 const Label = styled.label`
   display: flex;
   color: #21092f;
-  
+
 `;
 const Error = styled.label`
   visibility: ${(props) => props.visibilityLabel || "hidden"};
   display: flex;
   color: red;
 `;
+
 
 export default function InputField({
   label,

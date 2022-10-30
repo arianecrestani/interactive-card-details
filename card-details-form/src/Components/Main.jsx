@@ -6,7 +6,7 @@ const ImageMain = styled.img`
   height: 100%;
   margin: 0px;
   @media (max-width: 450px) {
-    width: 400px;
+    width: 391px;
     height: 260px;
   }
 `;

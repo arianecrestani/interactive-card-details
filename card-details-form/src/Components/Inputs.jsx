@@ -27,7 +27,7 @@ const SecondSection = styled.div`
 const Button = styled.button`
   display: flex;
   margin-top: 2rem;
-  width: 390px;
+  width: 380px;
   height: 53px;
   border-radius: 8px;
   background: #21092f;
@@ -191,7 +191,7 @@ export default function Inputs() {
               showError={showMonthError}
               errorDescription={errorBlank}
               maxLength={2}
-              inputwidth="80px"
+              inputwidth="70px"
               label="EXP. DATE"
               inputName="MM"
               onChange={(e) => {
@@ -202,7 +202,7 @@ export default function Inputs() {
               maxLength={2}
               errorDescription={errorBlank}
               showError={showYearError}
-              inputwidth="80px"
+              inputwidth="70px"
               inputName="YY"
               label="(MM /YY)"
               onChange={(e) => {
@@ -213,7 +213,7 @@ export default function Inputs() {
               errorDescription={errorBlank}
               showError={showCvcError}
               maxLength={3}
-              inputwidth="191px"
+              inputwidth="178px"
               label="CVC"
               inputName="e.g. 123"
               onChange={(e) => {

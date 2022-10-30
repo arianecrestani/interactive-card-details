@@ -11,8 +11,8 @@ const CardDiv1 = styled.div`
   gap: 2rem;
   @media (max-width: 450px) {
     margin-top: 0%;
-    gap: 0rem;
-    z-index: 1;
+    z-index: auto;
+    container-type: inline-size;
   }
 `;
 const CardFront = styled.img`
@@ -24,9 +24,9 @@ const CardFront = styled.img`
   @media (max-width: 450px) {
     width: 286px;
     height: 157px;
-    margin-left: 0px;
-    // margin-left: 10px;
-    // margin-top: -27%;
+    margin-left: 25px;
+    margin-top: -6rem;
+    z-index: auto;
   }
 `;
 const CardBack = styled.img`
@@ -37,16 +37,14 @@ const CardBack = styled.img`
   @media (max-width: 450px) {
     width: 286px;
     height: 157px;
-    // margin-left: 100px;
-    // margin-top: -325px;
-    margin-left: 0px;
+    margin-left: 95px;
+    margin-top: -20rem;
   }
 `;
 
 const CardDiv2 = styled.div`
   display: flex;
   flex-direction: column;
-
   margin-top: 5%;
   gap: 1rem;
 }
@@ -66,7 +64,14 @@ const LabelNumber = styled.label`
   font-weight: 500;
   font-size: 28px;
   line-height: 36px;
-
+  @media (max-width: 450px) {
+    font-size: 18px;
+    line-height: 28px;
+    padding: 8px;
+    margin-top: 25px;
+    margin-left: 34px;
+    letter-spacing: 2px;
+  }
 `;
 const LabelName = styled(LabelNumber)`
   margin-top: -0px;
@@ -76,6 +81,9 @@ const LabelName = styled(LabelNumber)`
 `;
 const LabelDate = styled(LabelName)`
   margin-left: 140px;
+  @media (max-width: 450px) {
+    margin-left: 70px;
+  }
 `;
 const LabelCvc = styled.label`
   display: flex;
@@ -87,6 +95,10 @@ const LabelCvc = styled.label`
   font-weight: 500;
   font-size: 18px;
   line-height: 36px;
+  @media (max-width: 450px) {
+    margin-top: -114px;
+    margin-left: 313px;
+  }
 `;
 const CardLogo = styled.img`
   display: flex;
@@ -95,6 +107,12 @@ const CardLogo = styled.img`
   margin-top: -248px;
   margin-left: -220px;
   height: 50px;
+  @media (max-width: 450px) {
+    margin-top: -170px;
+    margin-left: 39px;
+    height: 29px;
+    width: 53px;
+  }
 `;
 
 export default function Cards() {

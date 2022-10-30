@@ -36,12 +36,12 @@ const Labels = styled.div`
   flex-direction: column;
 `;
 const LabelNumber = styled.label`
-  margin-top: -120px;
-  padding: 5px;
+  margin-top: 68px;
+  padding: 15px;
   z-index: auto;
   color: #ffffff;
   font-size: 28px;
-  margin-left: -195px;
+  margin-left: -220px;
   letter-spacing: 3.42222px;
   font-weight: 500;
   font-size: 28px;
@@ -67,6 +67,14 @@ const LabelCvc = styled.label`
   font-size: 18px;
   line-height: 36px;
 `;
+const CardLogo = styled.img`
+  display: flex;
+  width: 55px;
+  z-index: 1;
+  margin-top: -248px;
+  margin-left: -220px;
+  height: 40px;
+`;
 
 export default function Cards() {
   let BgCardFront = require("../images/bg-card-front.png");
@@ -83,7 +91,12 @@ export default function Cards() {
     <div>
       <CardDiv1>
         <CardFront alt="cardFront" src={BgCardFront} />
+
         <Labels>
+          <CardLogo
+            alt="main"
+            src={require("../images/card-logo.svg").default}
+          />
           {number ? (
             <LabelNumber>{number}</LabelNumber>
           ) : (

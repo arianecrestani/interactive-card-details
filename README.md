@@ -30,7 +30,7 @@ Users should be able to:
 
 https://interactivecard-details-ari.netlify.app/
 
-![](./screenshot.jpg)
+ ![](./screenshot.jpg)
 
 
 ### Built with

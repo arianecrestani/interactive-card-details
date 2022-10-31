@@ -1,16 +1,20 @@
 import styled from "styled-components";
 
 const InputName = styled.input`
-  width: ${(props) => props.inputwidth || "365px"};
+  width: ${(props) => props.inputwidth || "377px"};
+  border-radius: 0.5rem;
   height: 45px;
-  font-family: "Space Grotesk";
+  border: 1px solid hsl(270deg, 3%, 87%);
+  font-family: "Space Grotesk", sans-serif;
   border-radius: 8px;
-  color: #21092f;
   font-style: normal;
+  ::placeholder {
+        color: $Dark-grayish-violet;
+        opacity: 1;92f ;
+  }
   font-weight: 500;
   font-size: 18px;
   border-color: ${(props) => (props.error ? "red" : "#dfdee0")};
-
 `;
 const Label = styled.label`
   display: flex;
@@ -21,8 +25,10 @@ const Error = styled.label`
   visibility: ${(props) => props.visibilityLabel || "hidden"};
   display: flex;
   color: red;
+  gab:2px
+  font-size: 0.75rem;
+  // margin-top: 0.25rem;
 `;
-
 
 export default function InputField({
   label,
@@ -31,7 +37,7 @@ export default function InputField({
   onChange,
   showError,
   errorDescription,
-  maxLength
+  maxLength,
 }) {
   return (
     <div>

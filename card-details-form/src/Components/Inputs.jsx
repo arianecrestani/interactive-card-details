@@ -5,6 +5,7 @@ import CardContext from "../CardContext";
 import { useState } from "react";
 
 const FirstSection = styled.div`
+  padding:2px;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -20,16 +21,16 @@ const SecondSection = styled.div`
   margin-top: 10px;
   flex-direction: row;
   display: flex;
-  margin-top: 15px;
+  gap:0.5rem;
   @media (max-width: 450px) {
-  gap: 15px;
+    gap: 13px;
   }
 `;
 
 const Button = styled.button`
   display: flex;
   margin-top: 2rem;
-  width: 380px;
+  width: 382px;
   height: 53px;
   border-radius: 8px;
   background: #21092f;
@@ -193,7 +194,7 @@ export default function Inputs() {
               showError={showMonthError}
               errorDescription={errorBlank}
               maxLength={2}
-              inputwidth="70px"
+              inputwidth="80px"
               label="EXP. DATE"
               inputName="MM"
               onChange={(e) => {
@@ -204,7 +205,7 @@ export default function Inputs() {
               maxLength={2}
               errorDescription={errorBlank}
               showError={showYearError}
-              inputwidth="70px"
+              inputwidth="80px"
               inputName="YY"
               label="(MM /YY)"
               onChange={(e) => {

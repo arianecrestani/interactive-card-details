@@ -97,7 +97,7 @@ const LabelCvc = styled.label`
   line-height: 36px;
   @media (max-width: 450px) {
     margin-top: -114px;
-    margin-left: 313px;
+    margin-left: 300px;
   }
 `;
 const CardLogo = styled.img`

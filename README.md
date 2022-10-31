@@ -1,7 +1,7 @@
 # Frontend Mentor - Interactive card details form solution
 This is a solution to the Interactive card details form challenge on Frontend Mentor. Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-### Result on this link: https://famous-otter-6365bf.netlify.app/
+### Result on this link: https://interactivecard-details-ari.netlify.app/
 
 ## Table of contents
 
@@ -28,7 +28,7 @@ Users should be able to:
 
 ### Screenshot
 
-https://famous-otter-6365bf.netlify.app/
+https://interactivecard-details-ari.netlify.app/
 
 ![](./screenshot.jpg)
 

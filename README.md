@@ -28,9 +28,11 @@ Users should be able to:
 
 ### Screenshot
 
+ ![](./screenshot.jpg)
+
+
 https://interactivecard-details-ari.netlify.app/
 
- ![](./screenshot.jpg)
 
 
 ### Built with

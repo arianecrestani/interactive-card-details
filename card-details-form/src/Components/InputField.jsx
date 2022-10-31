@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const InputName = styled.input`
-  width: ${(props) => props.inputwidth || "370px"};
+  width: ${(props) => props.inputwidth || "365px"};
   height: 45px;
   font-family: "Space Grotesk";
   border-radius: 8px;

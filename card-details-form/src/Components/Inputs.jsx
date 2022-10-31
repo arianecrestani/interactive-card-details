@@ -2,7 +2,7 @@ import styled from "styled-components";
 import InputField from "./InputField";
 import { useContext } from "react";
 import CardContext from "../CardContext";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const FirstSection = styled.div`
   display: flex;
@@ -19,9 +19,11 @@ const SecondSection = styled.div`
   display: flex;
   margin-top: 10px;
   flex-direction: row;
-  gap: 5px;
   display: flex;
   margin-top: 15px;
+  @media (max-width: 450px) {
+  gap: 15px;
+  }
 `;
 
 const Button = styled.button`
@@ -213,7 +215,7 @@ export default function Inputs() {
               errorDescription={errorBlank}
               showError={showCvcError}
               maxLength={3}
-              inputwidth="178px"
+              inputwidth="180px"
               label="CVC"
               inputName="e.g. 123"
               onChange={(e) => {

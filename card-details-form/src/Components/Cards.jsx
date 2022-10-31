@@ -102,7 +102,7 @@ const LabelCvc = styled.label`
 `;
 const CardLogo = styled.img`
   display: flex;
-  width: 70px;
+  width: 85px;
   z-index: 1;
   margin-top: -248px;
   margin-left: -220px;

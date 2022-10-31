@@ -28,9 +28,15 @@ Users should be able to:
 
 ### Screenshot
 
+ ![](./screenshot.jpg)
+
+
 https://interactivecard-details-ari.netlify.app/
 
+<<<<<<< HEAD
 ![flwochart](./screenshot.jpg)
+=======
+>>>>>>> e1e00e408b899f7bc541aeea5787d4b203a9e6b7
 
 
 ### Built with

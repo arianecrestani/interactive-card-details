@@ -1,7 +1,5 @@
 
-This is a challenge to the Interactive card details form challenge on Frontend Mentor. Frontend Mentor challenges help you improve your coding skills by building realistic projects.
-
-### Result on this link: https://interactivecard-details-ari.netlify.app/
+### my project: https://interactivecard-details-ari.netlify.app/
 
 ## Table of contents
 
